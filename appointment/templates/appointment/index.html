@@ -1,0 +1,20 @@
+{% extends "appointment/layout.html" %}
+{% load static %}
+
+{% block body %}
+	<div class="container_1">
+		<div class="front_page">
+			<h3>You could request an appointment with our team</h3>
+		</div>
+		<br>
+		<hr>
+		<div class="front_page">
+			<iframe width="550" height="320" src="https://www.youtube.com/embed/0mwxX3GjPiE?&autoplay=1&mute=1&start=5" frameborder="0">
+			</iframe>
+		</div>
+		<div class="front_page">
+			<a href="{% url 'information' %}" class="btn btn-lg btn-secondary">Request an appointment</a>
+		</div>
+	</div>
+	
+{% endblock%}

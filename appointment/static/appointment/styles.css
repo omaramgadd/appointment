@@ -1,0 +1,88 @@
+.container_1{
+	position: absolute;
+	top: 55%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	font-family: arial;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 13px;
+	padding: 30px;
+	display: inline-block;
+	display: table;
+}
+
+.container_1 .front_page{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.container_1 #new_id{
+	margin-top: 20px ;
+	margin-bottom: 20px ; 
+}
+
+#back{
+	margin: 15px;
+}
+
+#back .fa{
+	font-size: 70px;
+	color: grey;
+}
+
+#title h3{
+	text-align: center;
+	color: grey;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.bootstrap-select {
+  width: 420px !important;
+  margin-right: 18px;
+}
+
+#select_country{
+	text-align: left;
+}
+
+#select_company{
+	text-align: left;
+	margin-top: 20px;
+}
+#icon_1{
+	font-size: 23px;
+}
+#icon_2{
+	font-size: 24px;
+}
+#company_input{
+	width: 420px !important;
+	margin-right: 12.5px;
+	display: inline;
+	color: grey;
+	background: #f8f9fa;
+	border: 0px solid white;
+	height: 40px;
+}
+#ob_div{
+	margin-top: 20px;
+}
+#ob_input{
+	border-radius: 7px;
+	border: 0px solid white;
+	background: #f8f9fa;
+	height: 50px;
+}
+#t_area {
+  resize: none;
+  background: #f8f9fa;
+  height: 100px;
+  margin-top: 20px;
+  border: 0px solid white;
+}
