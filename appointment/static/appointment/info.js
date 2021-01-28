@@ -22,54 +22,44 @@ document.addEventListener('DOMContentLoaded', () =>{
     let c3_exist = false
     country.addEventListener('change', () =>{
     	var data = $('.flexdatalist').val();
-    	console.log(data)
-    	var selectedItem = $('.selectpicker').val();
-    	console.log(selectedItem)
-    	if (selectedItem.length == 0){
+
+    	var countries = $('.selectpicker').val();
+    	
+    	if (countries.length == 0){
     		$('#company_input').prop('disabled', true);
     	}
     	else{
     		$('#company_input').prop('disabled', false);
     	}
-
-
-
-    	if (selectedItem.includes('Country 1')){
-    		if (c1_exist == false){
-				let c1 = document.createElement("option");
-				c1.setAttribute("value", "Company 1");
-				company.appendChild(c1)
-	    		
-				let c2 = document.createElement("option");
-				c2.setAttribute("value", "Company 2");
-				company.appendChild(c2)
-				c1_exist = true
-			}
-    	}
-    	else{
-    		$("#company_picker option[value='Company 1']").remove()
-    		$("#company_picker option[value='Company 2']").remove()
-    		c1_exist = false
-    	}
-
-    	if (selectedItem.includes('Country 2')){
-    		if (c3_exist == false){
-	    		let c3 = document.createElement("option");
-				c3.setAttribute("value", "Company 3");
-				company.appendChild(c3)
-				c3_exist = true
-			}
-    	}
-    	else{
-    		$("#company_picker option[value='Company 3']").remove()
-    		c3_exist = false
-    	}
+        
+        company.innerHTML = ''
+        for (i = 0; i < countries.length; i++){
+            let c = countries[i]
+            fetch(`/companies/${c}/empty`)
+            .then(response => response.json())
+            .then(companiez => {
+                for (i = 0; i < companiez.length; i++){
+                    let cc = companiez[i].fields.company_name
+                    let c1 = document.createElement("option");
+                    c1.setAttribute("value", cc);
+                    company.appendChild(c1)
+                }
+            })
+        }
+        
     })
 
     document.querySelector('#the_form').onsubmit = () => {
     	if(confirm('press ok to confirm your request')){
     		console.log('submitted')
-            
+            var countries = $('.selectpicker').val();
+            for (i = 0; i < countries.length; i++){
+                let c = countries[i]
+                let co = document.querySelector('#company_input').value
+                fetch(`/companies/${c}/${co}`, {method: 'POST'})
+                .then(response => response.json())
+                .then(data => console.log(data))
+            }
     	}
     	else{
     		return false

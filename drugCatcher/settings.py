@@ -24,7 +24,7 @@ SECRET_KEY = 'n(r098$gi$$50!@mv*^w1%ga6+syl!1(!uw#kq^)8&qs6_u&a^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['omaramgad.pythonanywhere.com']
+ALLOWED_HOSTS = ['omaramgad.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition

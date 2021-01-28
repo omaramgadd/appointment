@@ -4,6 +4,7 @@ from django.core.mail import send_mail
 from django.http import JsonResponse
 from .models import *
 from django.views.decorators.csrf import csrf_exempt
+from django.core import serializers
 
 def index(request):
 	return render(request, "appointment/index.html")
@@ -49,21 +50,12 @@ def companies(request, country, company):
 			return JsonResponse({"msg" : 'company already exists'}, status = 201)
 
 		except Company.DoesNotExist:
-			c = Company(company_name = company, country_name = country)
+			coun = Country.objects.get(country_name = country)
+			c = Company(company_name = company, country_name = coun)
 			c.save()
 			return JsonResponse({"msg" : 'company added'}, status = 201)
 
 	if request.method == "GET":
 		cg = Company.objects.filter(country_name = country)
-		return JsonResponse({"companies" : '{cg}'.format(cg = cg)}, status = 201)
-
-
-
-
-
-
-
-
-
-
-
+		cg = serializers.serialize('json', cg)
+		return HttpResponse(cg, content_type="text/json-comment-filtered")
