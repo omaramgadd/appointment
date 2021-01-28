@@ -27,14 +27,14 @@ def confirmation(request):
 
 		send_mail(
 			"Thank you for contancting DrugCatcher",
-			f"We will get in touch soon\nYour info\nName: {first} {last}\nEmail: {email}\nPhone Number: +{code}{number}\nCountries Selected: {country}\nCompanies Selected: {company}\nObjectives: {objectives}\nDescription: {description}",
+			"We will get in touch soon\nYour info\nName: {first} {last}\nEmail: {email}\nPhone Number: +{code}{number}\nCountries Selected: {country}\nCompanies Selected: {company}\nObjectives: {objectives}\nDescription: {description}".format(first = first, last = last, email = email, code = code, number = number, country = country, company = company, objectives = objectives, description = description),
 			"omar.amgad.omar@gmail.com",
 			[email]
 			)
 
 		send_mail(
 			"New appointment request",
-			f"User info\nName: {first} {last}\nEmail: {email}\nPhone Number: +{code}{number}\nCountries Selected: {country}\nCompanies Selected: {company}\nObjectives: {objectives}\nDescription: {description}",
+			"User info\nName: {first} {last}\nEmail: {email}\nPhone Number: +{code}{number}\nCountries Selected: {country}\nCompanies Selected: {company}\nObjectives: {objectives}\nDescription: {description}".format(first = first, last = last, email = email, code = code, number = number, country = country, company = company, objectives = objectives, description = description),
 			"omar.amgad.omar@gmail.com",
 			["omar.amgad.omar@gmail.com"]
 			)
@@ -55,7 +55,7 @@ def companies(request, country, company):
 
 	if request.method == "GET":
 		cg = Company.objects.filter(country_name = country)
-		return JsonResponse({"companies" : f'{cd}'}, status = 201)
+		return JsonResponse({"companies" : '{cg}'.format(cg = cg)}, status = 201)
 
 
 

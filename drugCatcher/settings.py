@@ -24,7 +24,7 @@ SECRET_KEY = 'n(r098$gi$$50!@mv*^w1%ga6+syl!1(!uw#kq^)8&qs6_u&a^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['omaramgad.pythonanywhere.com']
 
 
 # Application definition
@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'drugCatcher.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
     }
 }
 
@@ -118,6 +118,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = '/home/omaramgad/appointment/static'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
