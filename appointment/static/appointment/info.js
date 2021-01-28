@@ -32,8 +32,9 @@ document.addEventListener('DOMContentLoaded', () =>{
     		$('#company_input').prop('disabled', false);
     	}
 
-    	if (selectedItem.includes('Country 1')){
 
+
+    	if (selectedItem.includes('Country 1')){
     		if (c1_exist == false){
 				let c1 = document.createElement("option");
 				c1.setAttribute("value", "Company 1");
@@ -68,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     document.querySelector('#the_form').onsubmit = () => {
     	if(confirm('press ok to confirm your request')){
     		console.log('submitted')
+            
     	}
     	else{
     		return false
