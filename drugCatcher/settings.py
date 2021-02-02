@@ -124,7 +124,7 @@ STATIC_ROOT = '/home/omaramgad/appointment/static'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
 EMAIL_HOST_USER = 'omar.amgad.omar@gmail.com'
-EMAIL_HOST_PASSWORD = '13461346o.o'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 
 
